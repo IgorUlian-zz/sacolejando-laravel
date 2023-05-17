@@ -17,7 +17,7 @@ class FoodResource extends JsonResource
         return [
             'identify' => $this->uuid,
             'food_name' => $this->food_name,
-            'food_price'=> $this->food_price,
+            'price'=> $this->price,
             'food_desc' => $this->food_desc,
         ];
     }

@@ -19,7 +19,7 @@ return new class extends Migration
             $table->bigInteger('order_id')->unsigned();
             $table->bigInteger('food_id')->unsigned();
             $table->integer('quantity');
-            $table->double('price', 10, 2);
+            $table->double('price', 10,2);
             $table->timestamps();
             
             $table->foreign('order_id')->references('id')->on('orders')->onDelete('cascade');

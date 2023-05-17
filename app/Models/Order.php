@@ -8,9 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Order extends Model
 {
-    use HasFactory;
     use TenantTrait;
-
+    use HasFactory;
     protected $table = 'orders';
     protected $primaryKey = 'id';
     protected $fillable = [
@@ -18,16 +17,16 @@ class Order extends Model
         'identify',
         'client_id',
         'order_status',
-        'order_price',
+        'total',
         'order_comment',
     ];
 
-    public function tenants()
+    public function tenant()
     {
         return $this->belongsTo(Tenant::class);
     }
 
-    public function clients()
+    public function client()
     {
         return $this->belongsTo(Client::class);
     }

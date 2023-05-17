@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('food_name')->unique();
             $table->string('url')->unique();
             $table->uuid('uuid');
-            $table->double('food_price', 10,2);
+            $table->double('price', 10,2);
             $table->string('food_desc');
             $table->timestamps();
 

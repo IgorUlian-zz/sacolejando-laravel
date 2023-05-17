@@ -31,6 +31,7 @@ Route::group([
     'middleware' => ['auth:sanctum']], function () {
         Route::get('/auth/me', [AuthClientController::class, 'recoverMe']);
         Route::post('/auth/logout', [AuthClientController::class, 'logoutClient']);
+        Route::post('/auth/v1/orders', [OrderAPIController::class, 'storeOrder']);
 
     }
 );
@@ -57,7 +58,7 @@ Route::get('/foods', [FoodAPIController::class, 'foodsByTenant']);
 Route::post('/clients', [RegisterController::class, 'storeClient']);
 
 //ROTAS PARA PEDIDOS
-Route::get('/foods/{identify}', [OrderAPIController::class, 'showFoods']);
+Route::get('/orders/{identify}', [OrderAPIController::class, 'showOrders']);
 Route::post('/orders', [OrderAPIController::class, 'storeOrder']);
 
 

@@ -7,7 +7,7 @@
 </div>
 <div class="form-group">
     <label>Preço:</label>
-    <input type="text" name="food_price" class="form-control" placeholder="Digite o preço ..." value="{{$food->food_price ?? old('food_price') }}"></input>
+    <input type="text" name="price" class="form-control" placeholder="Digite o preço ..." value="{{$food->price ?? old('food_price') }}"></input>
 </div>
 <div class="form-group">
     <label>Descrição:</label>

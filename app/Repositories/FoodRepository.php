@@ -33,6 +33,6 @@ class FoodRepository implements FoodRepositoryInterface
     {
         return DB::table($this->table)
                     ->where('uuid', $uuid)
-                    ->get();
+                    ->first();
     }
 }

@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('identify')->unique();
             $table->integer('client_id')->nullable();
             $table->enum('order_status', ['Aprovado', 'Cancelado', 'Aguardando', 'Produzindo', 'Rota de Entrega', 'Finalizado'])->default('Aguardando');
-            $table->string('order_price', 10,2);
+            $table->double('total', 10,2);
             $table->string('order_comment');
             $table->timestamps();
 

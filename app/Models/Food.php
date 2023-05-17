@@ -15,17 +15,13 @@ class Food extends Model
     protected $primaryKey = 'id';
     protected $fillable = [
         'food_name',
-        'food_price',
+        'price',
         'food_desc',
     ];
 
     public function categories()
     {
         return $this->belongsToMany(Category::class);
-    }
-
-    public function tenants() {
-        return $this->belongsTo(Tenant::class, 'tenant_id', 'id');
     }
 
     /**

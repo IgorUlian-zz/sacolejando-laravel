@@ -16,6 +16,12 @@ class OrderResource extends JsonResource
     {
         return [
             'identify' => $this->identify,
+            'total'=> $this->total,
+            'status' => $this->order_status,
+            'client' => $this->client_id ? new ClientResource($this->clients) : '' ,
+            'products' => $this->foods,
+
+
         ];
     }
 

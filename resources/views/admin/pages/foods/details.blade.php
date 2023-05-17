@@ -17,7 +17,7 @@
                     <strong>Name: </strong> {{$food->food_name}}
                 </li>
                 <li>
-                    <strong>Preço: </strong> {{$food->food_price}}
+                    <strong>Preço: </strong> {{$food->price}}
                 </li>
                 <li>
                     <strong>Descrição: </strong> {{$food->food_desc}}

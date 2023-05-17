@@ -47,7 +47,7 @@
                                 {{$food->food_name}}
                             </td>
                             <td>
-                                {{$food->food_price}}
+                                {{$food->price}}
                             </td>
                             <td>
                                 {{$food->food_desc}}
