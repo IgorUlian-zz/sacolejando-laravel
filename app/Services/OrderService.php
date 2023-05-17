@@ -54,6 +54,13 @@ class OrderService
         return $this->orderRepository->getOrderByIdentify($identify);
     }
 
+    public function ordersByClient()
+    {
+        $idClient = $this->getClientIdByOrder();
+
+        return $this->orderRepository->getOrderByClientId($idClient);
+    }
+
     private function getIdentifyOrder(int $qtyCaraceters = 8)
     {
         $smallLetters = str_shuffle('abcdefghijklmnopqrstuvwxyz');

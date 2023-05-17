@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
             PlansTableSeeder::class,
             TenantsTableSeeder::class,
             UserTableSeeder::class,
+            ClientTableSeeder::class,
             //CategoryTableSeeder::class,
            //FoodTableSeeder::class,
         ]);

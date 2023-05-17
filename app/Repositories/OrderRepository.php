@@ -50,7 +50,7 @@ class OrderRepository implements OrderRepositoryInterface
     public function registerFoodsOrder(int $orderId, array $foods)
     {
         //ADICIONAR OS ITENS ADQUIRIDOS NA TABELA PIVO
-        /*$order = $this->entity->find($orderId);
+        $order = $this->entity->find($orderId);
 
         $orderFoods = [];
 
@@ -61,10 +61,10 @@ class OrderRepository implements OrderRepositoryInterface
             ];
         }
 
-        $order->foods()->attach($orderFoods);*/
+        $order->foods()->attach($orderFoods);
 
         //ADICIONAR OS ITENS ADQUIRIDOS NA TABELA PIVO
-        $orderFoods = [];
+        /*$orderFoods = [];
 
         foreach ($foods as $food){
             array_push($orderFoods, [
@@ -75,6 +75,14 @@ class OrderRepository implements OrderRepositoryInterface
             ]);
         }
 
-        DB::table('order_food')->insert($orderFoods);
+        DB::table('order_food')->insert($orderFoods);*/
+    }
+
+    public function getOrderByClientId(int $idClient)
+    {
+        $orders = $this->entity
+                             ->where('client_id', $idClient)
+                             ->paginate();
+        return $orders;                             
     }
 }

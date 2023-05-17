@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    var $table = 'order_food';
+    var $table = 'food_order';
     /**
      * Run the migrations.
      *

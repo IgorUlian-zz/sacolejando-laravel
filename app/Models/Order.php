@@ -31,8 +31,14 @@ class Order extends Model
         return $this->belongsTo(Client::class);
     }
 
+    public function evaluations()
+    { 
+        return $this->belongsTo(Evaluation::class);
+    }
+    
     public function foods()
-    {
+    { 
         return $this->belongsToMany(Food::class);
     }
+
 }

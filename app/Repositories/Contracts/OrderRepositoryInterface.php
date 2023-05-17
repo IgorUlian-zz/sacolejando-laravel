@@ -17,4 +17,7 @@ interface OrderRepositoryInterface
 
     public function registerFoodsOrder(int $orderId, array $foods);
 
+    public function getOrderByClientId(int $idClient);
+    
+
 }

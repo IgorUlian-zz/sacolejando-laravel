@@ -3,6 +3,7 @@
 use App\Http\Controllers\API\Auth\AuthClientController;
 use App\Http\Controllers\API\Auth\RegisterController;
 use App\Http\Controllers\API\CategoryAPIController;
+use App\Http\Controllers\API\EvaluationAPIController;
 use App\Http\Controllers\API\FoodAPIController;
 use App\Http\Controllers\API\OrderAPIController;
 use App\Http\Controllers\API\OrderController;
@@ -30,8 +31,13 @@ Route::post('/sanctum/token', [AuthClientController::class, 'authClient']);
 Route::group([
     'middleware' => ['auth:sanctum']], function () {
         Route::get('/auth/me', [AuthClientController::class, 'recoverMe']);
+        Route::get('/auth/v1/my-orders', [OrderAPIController::class, 'myOrders']);
+
         Route::post('/auth/logout', [AuthClientController::class, 'logoutClient']);
         Route::post('/auth/v1/orders', [OrderAPIController::class, 'storeOrder']);
+        Route::post('/auth/v1/orders/{identifyOrder}/evaluations', [EvaluationAPIController::class, 'storeEvaluation']);
+
+
 
     }
 );

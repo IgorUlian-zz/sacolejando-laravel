@@ -28,6 +28,7 @@ class StoreUpdateFood extends FormRequest
         return [
             'food_name' => "required|min:3|max:255|unique:foods,food_name,{$id},id",
             'food_desc' => "required|min:3|max:255",
+            'price' => "required"
         ];
     }
 }
