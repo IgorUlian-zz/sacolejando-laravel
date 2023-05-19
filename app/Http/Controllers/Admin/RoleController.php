@@ -61,23 +61,6 @@ class RoleController extends Controller
 
         return redirect()->route('roles.index');
     }
-
-    public function search(Request $request)
-    {
-        $filters = $request->only('filter');
-
-        $users = $this->repository
-                        ->where(function($query) use ($request) {
-                            if($request->filter){
-                                $query->where('role_name', $request->filter);
-                                $query->orWhere('role_desc', 'LIKE', "%{$request->filter}%");
-                            }
-                        })
-                        ->paginate();
-
-                        return view('admin.pages.roles.index', compact('roles', 'filters'));          
-
-    }
     
     public function edit($url)
     {
@@ -103,23 +86,22 @@ class RoleController extends Controller
             return redirect()->route('roles.index');
     }
 
-    
-    /*public function search(Request $request)
+    public function search(Request $request)
     {
         $filters = $request->only('filter');
 
-        $users = $this->repository
+        $roles = $this->repository
                         ->where(function($query) use ($request) {
                             if($request->filter){
-                                $query->where('name', $request->filter);
-                                $query->orWhere('description', 'LIKE', "%{$request->filter}%");
+                                $query->where('role_name', $request->filter);
+                                $query->orWhere('role_desc', 'LIKE', "%{$request->filter}%");
                             }
                         })
                         ->paginate();
 
-                        return view('admin.pages.users.index', compact('users', 'filters'));          
+                        return view('admin.pages.roles.index', compact('roles', 'filters'));          
 
-    }*/
+    }
 
 }
 

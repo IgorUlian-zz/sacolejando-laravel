@@ -18,6 +18,12 @@ interface OrderRepositoryInterface
     public function registerFoodsOrder(int $orderId, array $foods);
 
     public function getOrderByClientId(int $idClient);
+
+    public function getOrdersByTenantId(int $idTenant, string $status, string $date = null);
+
+    public function updateStatusOrder(string $identify, string $status);
+
+
     
 
 }

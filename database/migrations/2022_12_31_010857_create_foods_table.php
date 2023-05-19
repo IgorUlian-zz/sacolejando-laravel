@@ -18,7 +18,7 @@ return new class extends Migration
         Schema::create($this->table, function (Blueprint $table) {
             $table->id();
             $table->bigInteger('tenant_id')->unsigned();
-            $table->string('food_name')->unique();
+            $table->string('food_name');
             $table->string('url')->unique();
             $table->uuid('uuid');
             $table->double('price', 10,2);

@@ -39,6 +39,7 @@ class ProfileController extends Controller
 
         return redirect()->route('profiles.index');
     }
+    
     public function details($url)
     {
         $profile = $this->repository->where('url', $url)->first();
@@ -66,7 +67,7 @@ class ProfileController extends Controller
     {
         $filters = $request->only('filter');
 
-        $users = $this->repository
+        $profiles = $this->repository
                         ->where(function($query) use ($request) {
                             if($request->filter){
                                 $query->where('profile_name', $request->filter);

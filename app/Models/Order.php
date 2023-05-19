@@ -21,6 +21,10 @@ class Order extends Model
         'order_comment',
     ];
 
+    public $statusOptions = [
+        'Aprovado', 'Cancelado', 'Aguardando', 'Produzindo', 'Rota de Entrega', 'Finalizado'
+    ];
+
     public function tenant()
     {
         return $this->belongsTo(Tenant::class);

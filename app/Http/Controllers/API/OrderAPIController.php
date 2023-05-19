@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\API;
 
+use App\Events\OrderCreated;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\API\TenantRequestForm;
 use App\Http\Requests\StoreUpdateOrder;

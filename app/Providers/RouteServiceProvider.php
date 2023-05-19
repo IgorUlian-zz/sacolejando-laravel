@@ -38,6 +38,15 @@ class RouteServiceProvider extends ServiceProvider
         });
     }
 
+    public function map()
+    {
+        $this->mapApiRoutes();
+
+        $this->mapWebRoutes();
+
+        $this->mapAuthApiRoutes();
+    }
+
     /**
      * Configure the rate limiters for the application.
      *
@@ -49,4 +58,14 @@ class RouteServiceProvider extends ServiceProvider
             return Limit::perMinute(60)->by($request->user()?->id ?: $request->ip());
         });
     }
+
+    protected function mapAuthApiRoutes()
+    {
+        Route::prefix('api')
+             ->middleware(['web', 'api'])
+             ->namespace($this->namespace)
+             ->group(base_path('routes/auth_api.php'));
+    }
 }
+
+

@@ -3,6 +3,9 @@
 use App\Http\Controllers\admin\CategoryController;
 use App\Http\Controllers\admin\CategoryFoodController;
 use App\Http\Controllers\admin\FoodController;
+use App\Http\Controllers\Admin\FoodOrderController;
+use App\Http\Controllers\Admin\HomeController;
+use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\admin\PermissionController;
 use App\Http\Controllers\admin\PermissionProfileController;
 use App\Http\Controllers\Admin\PermissionRoleController;
@@ -33,12 +36,14 @@ Route::prefix('admin')
         ->middleware('auth')
         ->group(function() {
 
+    /**
+     * route orders
+     */
+    Route::get('orders', [OrderController::class, 'index'])->name('orders.index');
 
     /**
      * route plans
      */
-    Route::get('/', [PlanController::class, 'index'])->name('plans.admin');
-
     Route::put('plans/{url}', [PlanController::class, 'update'])->name('plans.update');
     Route::any('plans/search', [PlanController::class, 'search'])->name('plans.search');
     Route::post('plans/store', [PlanController::class, 'store'])->name('plans.store');
@@ -72,7 +77,6 @@ Route::prefix('admin')
     Route::post('roles/store', [RoleController::class, 'store'])->name('roles.store');
     Route::delete('roles/{url}', [RoleController::class, 'delete'])->name('roles.delete');
     
-    Route::get('/', [RoleController::class, 'index'])->name('roles.admin');
     Route::get('roles/{url}/edit', [RoleController::class, 'edit'])->name('roles.edit');
     Route::get('roles/index', [RoleController::class, 'index'])->name('roles.index');
     Route::get('roles/create', [RoleController::class, 'create'])->name('roles.create');
@@ -87,7 +91,6 @@ Route::prefix('admin')
     Route::post('profiles/store', [ProfileController::class, 'store'])->name('profiles.store');
     Route::delete('profiles/{url}', [ProfileController::class, 'delete'])->name('profiles.delete');
     
-    Route::get('/', [ProfileController::class, 'index'])->name('profiles.admin');
     Route::get('profiles/{url}/edit', [ProfileController::class, 'edit'])->name('profiles.edit');
     Route::get('profiles/index', [ProfileController::class, 'index'])->name('profiles.index');
     Route::get('profiles/create', [ProfileController::class, 'create'])->name('profiles.create');
@@ -199,7 +202,23 @@ Route::prefix('admin')
     Route::get('foods/{id}/categories', [CategoryFoodController::class, 'categories'] )->name('foods.categories');
     Route::get('categories/{id}/foods', [CategoryFoodController::class, 'foods'] )->name('categories.foods');
 
+
+   /*
+  *foodOrders
+  */
+    Route::get('foodOrders/index', [FoodOrderController::class, 'index'])->name('foodOrders.index');
+    Route::get('foodOrders/{identify}', [FoodOrderController::class, 'details'])->name('foodOrders.details');
+    Route::any('foodOrders/search', [FoodOrderController::class, 'search'])->name('foodOrders.search');
+
+
+  /*
+  * Home dashboard
+  */
+    Route::get('', [HomeController::class, 'home'])->name('admin.index');
+
 });
+
+
 
  /*
   * Home plans

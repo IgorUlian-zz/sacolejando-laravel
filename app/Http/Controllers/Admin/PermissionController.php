@@ -39,6 +39,7 @@ class PermissionController extends Controller
 
         return redirect()->route('permissions.index');
     }
+    
     public function details($id)
     {
         $permission = $this->repository->where('id', $id)->first();
@@ -60,22 +61,6 @@ class PermissionController extends Controller
         $permission->delete();
 
         return redirect()->route('permissions.index');
-    }
-
-    public function search(Request $request)
-    {
-        $filters = $request->only('filter');
-
-        $permissions = $this->repository
-                            ->where(function($query) use ($request) {
-                                if ($request->filter) {
-                                    $query->where('permission_name', $request->filter);
-                                    $query->orWhere('permission_desc', 'LIKE', "%{$request->filter}%");
-                                }
-                            })
-                            ->paginate();
-
-        return view('admin.pages.permissions.index', compact('permissions', 'filters'));
     }
 
     
@@ -101,6 +86,25 @@ class PermissionController extends Controller
         $permission->update($request->all());
 
             return redirect()->route('permissions.index');
+    }
+
+    
+    public function search(Request $request)
+    {
+        $filters = $request->only('filter');
+
+        $permissions = $this->repository
+                        ->where(function($query) use ($request) {
+                            if($request->filter){
+                                $query->where('permission_name', $request->filter);
+                                $query->orWhere('permission_desc', 'LIKE', "%{$request->filter}%");
+                            }
+                        })
+                        ->latest()
+                        ->paginate();
+
+                        return view('admin.pages.permissions.index', compact('permissions', 'filters'));          
+
     }
 
 }

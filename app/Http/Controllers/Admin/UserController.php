@@ -66,7 +66,6 @@ class UserController extends Controller
     public function edit($id)
     {
 
-
         if(!$user = $this->repository->tenantUser()->find($id)){
             return redirect()->back();
         }
@@ -111,5 +110,6 @@ class UserController extends Controller
                         return view('admin.pages.users.index', compact('users', 'filters'));          
 
     }
+    
 
 }

@@ -16,6 +16,9 @@ use App\Observers\PlanObserver;
 use App\Observers\ProfileObserver;
 use App\Observers\RoleObserver;
 use App\Observers\TenantObserver;
+use App\Models\Traits\UserAdminTraits;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -49,6 +52,10 @@ class AppServiceProvider extends ServiceProvider
         Role::observe(RoleObserver::class);
         Client::observe(ClientObserver::class);
 
-
+        Blade::if('admin', function () {
+            $user = auth()->user();
+            
+            return $user->isAdmin();
+        });
     }
 }

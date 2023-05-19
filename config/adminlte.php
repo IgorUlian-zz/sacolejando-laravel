@@ -14,8 +14,8 @@ return [
     |
     */
 
-    'title' => 'Sacolejando ADM',
-    'title_prefix' => '',
+    'title' => 'Sacolejando',
+    'title_prefix' => 'ADM',
     'title_postfix' => '',
 
     /*
@@ -63,7 +63,7 @@ return [
     |
     */
 
-    'logo' => '<b>Sacolejando</b>ADM',
+    'logo' => '<b>Sacolejando</b>',
     'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
@@ -253,7 +253,7 @@ return [
     */
 
     'use_route_url' => false,
-    'dashboard_url' => 'home',
+    'dashboard_url' => 'admin',
     'logout_url' => 'logout',
     'login_url' => 'login',
     'register_url' => 'register',
@@ -291,6 +291,11 @@ return [
 
     'menu' => [
         [
+            'text'    => 'Dashboard',
+            'url'  => 'admin',
+            'icon'    => 'fa-solid fa-table-tree',
+        ],
+        [
             'text'    => 'Planos',
             'icon'    => 'fas fa-fw fa-share',
             'can' => 'plans',
@@ -300,30 +305,13 @@ return [
                     'text' => 'Cadastrar Planos',
                     'url'  => 'admin/plans/index',
                     'icon' => 'fas fa-fw fa-user',
+                    'can' => 'plans',
                 ],
-            ],
-        ],
-        [
-            'text'    => 'Perfis',
-            'icon'    => 'fas fa-fw fa-share',
-            'can' => 'profiles',
-            'submenu' => [
                 [
                     'text' => 'Cadastrar Perfis',
                     'url'  => 'admin/profiles/index',
                     'icon' => 'fas fa-fw fa-user',
-                ],
-            ],
-        ],
-        [
-            'text'    => 'Permissões',
-            'icon'    => 'fas fa-fw fa-share',
-            'can'    => 'permissions',
-            'submenu' => [
-                [
-                    'text' => 'Cadastrar Permissões',
-                    'url'  => 'admin/permissions/index',
-                    'icon' => 'fas fa-fw fa-user',
+                    'can' => 'profiles',
                 ],
             ],
         ],
@@ -331,13 +319,7 @@ return [
             'text'    => 'Empresas',
             'icon'    => 'fas fa-fw fa-share',
             'can' => 'profiles',
-            'submenu' => [
-                [
-                    'text' => 'Cadastrar Empresas',
-                    'url'  => 'admin/tenants/index',
-                    'icon' => 'fas fa-fw fa-user',
-                ],
-            ],
+            'url'  => 'admin/tenants/index',
         ],
         [
             'text'    => 'Usuários',
@@ -348,20 +330,20 @@ return [
                     'text' => 'Cadastrar Usuários',
                     'url'  => 'admin/users/index',
                     'icon' => 'fas fa-fw fa-user',
-
+                    'can' => 'users',
                 ],
-            ],
-        ],
-        [
-            'text'    => 'Cargos',
-            'icon'    => 'fas fa-fw fa-share',
-            'can' => 'roles',
-            'submenu' => [
                 [
                     'text' => 'Cadastrar Cargos',
                     'url'  => 'admin/roles/index',
                     'icon' => 'fas fa-fw fa-user',
+                    'can' => 'roles',
 
+                ],
+                [
+                    'text' => 'Cadastrar Permissões',
+                    'url'  => 'admin/permissions/index',
+                    'icon' => 'fas fa-fw fa-user',
+                    'can'    => 'permissions',
                 ],
             ],
         ],
@@ -383,6 +365,11 @@ return [
                     'can' => 'foods',
                 ],
             ],
+        ],
+        [
+            'text'    => 'Pedidos',
+            'icon'    => 'fas fa-fw fa-share',
+            'url'  => 'admin/foodOrders/index',
         ],
     ],
     /*

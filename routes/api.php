@@ -26,7 +26,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('/sanctum/token', [AuthClientController::class, 'authClient']);
+Route::post('/auth/token', [AuthClientController::class, 'authClient']);
 
 Route::group([
     'middleware' => ['auth:sanctum']], function () {

@@ -63,23 +63,6 @@ class PlanController extends Controller
         return redirect()->route('plans.index');
     }
 
-    public function search(Request $request)
-    {
-        $filters = $request->only('filter');
-
-        $users = $this->repository
-                        ->where(function($query) use ($request) {
-                            if($request->filter){
-                                $query->where('plan_name', $request->filter);
-                                $query->orWhere('plan_desc', 'LIKE', "%{$request->filter}%");
-                            }
-                        })
-                        ->paginate();
-
-                        return view('admin.pages.plans.index', compact('plans', 'filters'));          
-
-    }
-
     public function edit($url)
     {
 
@@ -102,5 +85,22 @@ class PlanController extends Controller
         $plan->update($request->all());
 
             return redirect()->route('plans.index');
+    }
+
+    public function search(Request $request)
+    {
+        $filters = $request->only('filter');
+
+        $plans = $this->repository
+                        ->where(function($query) use ($request) {
+                            if($request->filter){
+                                $query->where('plan_name', 'LIKE', "%{$request->filter}%");
+                            }
+                        })
+                        ->latest()
+                        ->paginate();
+
+                        return view('admin.pages.plans.index', compact('plans', 'filters'));          
+
     }
 }

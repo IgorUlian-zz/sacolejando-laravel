@@ -20,5 +20,10 @@ class ClientTableSeeder extends Seeder
             'client_email' => 'beatrizcg@gmail.com',
             'password' => bcrypt('123456'),
         ]);
+        Client::create([
+            'client_name'=> 'Kauane Ulian',
+            'client_email' => 'kauaneulian@gmail.com',
+            'password' => bcrypt('123456'),
+        ]);
     }
 }
