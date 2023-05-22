@@ -52,6 +52,7 @@ class AppServiceProvider extends ServiceProvider
         Role::observe(RoleObserver::class);
         Client::observe(ClientObserver::class);
 
+
         Blade::if('admin', function () {
             $user = auth()->user();
             

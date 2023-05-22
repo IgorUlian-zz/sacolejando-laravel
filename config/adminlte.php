@@ -64,7 +64,7 @@ return [
     */
 
     'logo' => '<b>Sacolejando</b>',
-    'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
+    'logo_img' => 'images/icon-sacolejando.png',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
@@ -86,7 +86,7 @@ return [
     'auth_logo' => [
         'enabled' => false,
         'img' => [
-            'path' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
+            'path' => 'images/logo-sacolejando-atualizado1.png',
             'alt' => 'Auth Logo',
             'class' => '',
             'width' => 50,
@@ -109,7 +109,7 @@ return [
     'preloader' => [
         'enabled' => true,
         'img' => [
-            'path' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
+            'path' => 'images/icon-sacolejando.png',
             'alt' => 'AdminLTE Preloader Image',
             'effect' => 'animation__shake',
             'width' => 60,
@@ -253,7 +253,7 @@ return [
     */
 
     'use_route_url' => false,
-    'dashboard_url' => 'admin',
+    'dashboard_url' => '/admin',
     'logout_url' => 'logout',
     'login_url' => 'login',
     'register_url' => 'register',
@@ -290,66 +290,75 @@ return [
     */
 
     'menu' => [
+        //DASHBOARD
         [
             'text'    => 'Dashboard',
             'url'  => 'admin',
-            'icon'    => 'fa-solid fa-table-tree',
+            'icon'    => 'fas fa-grip-horizontal',
         ],
+        
+        //PEDIDOS
         [
-            'text'    => 'Planos',
-            'icon'    => 'fas fa-fw fa-share',
-            'can' => 'plans',
-            'submenu' => [
-                
-                [
-                    'text' => 'Cadastrar Planos',
-                    'url'  => 'admin/plans/index',
-                    'icon' => 'fas fa-fw fa-user',
-                    'can' => 'plans',
-                ],
-                [
-                    'text' => 'Cadastrar Perfis',
-                    'url'  => 'admin/profiles/index',
-                    'icon' => 'fas fa-fw fa-user',
-                    'can' => 'profiles',
-                ],
-            ],
+            'text'    => 'Pedidos',
+            'icon'    => 'far fa-calendar',
+            'url'  => 'admin/orders/index',
         ],
+        
+        //PLANOS
+        [
+            'text' => 'Planos',
+            'url'  => 'admin/plans/index',
+            'icon' => 'far fa-clipboard',
+            'can' => 'plans',
+
+        ],
+
+        //EMPRESAS
         [
             'text'    => 'Empresas',
-            'icon'    => 'fas fa-fw fa-share',
+            'icon'    => 'fas fa-building',
             'can' => 'profiles',
             'url'  => 'admin/tenants/index',
         ],
+
+        //USUÁRIOS
         [
             'text'    => 'Usuários',
-            'icon'    => 'fas fa-fw fa-share',
+            'icon'    => 'fas fa-user-friends',
             'can' => 'users',
             'submenu' => [
                 [
                     'text' => 'Cadastrar Usuários',
                     'url'  => 'admin/users/index',
-                    'icon' => 'fas fa-fw fa-user',
+                    'icon' => 'fas fa-user-plus',
                     'can' => 'users',
                 ],
                 [
                     'text' => 'Cadastrar Cargos',
                     'url'  => 'admin/roles/index',
-                    'icon' => 'fas fa-fw fa-user',
+                    'icon' => '	fas fa-user-shield',
                     'can' => 'roles',
 
                 ],
                 [
                     'text' => 'Cadastrar Permissões',
                     'url'  => 'admin/permissions/index',
-                    'icon' => 'fas fa-fw fa-user',
+                    'icon' => '	fas fa-user-lock',
                     'can'    => 'permissions',
+                ],
+                [
+                    'text' => 'Cadastrar Perfis',
+                    'url'  => 'admin/profiles/index',
+                    'icon' => 'fas fa-user-cog',
+                    'can' => 'profiles',
                 ],
             ],
         ],
+        
+        //ALIMENTOS
         [
             'text'    => 'Alimentos',
-            'icon'    => 'fas fa-fw fa-share',
+            'icon'    => 'fas fa-hamburger',
             'can' => 'foods',
             'submenu' => [
                 [
@@ -361,17 +370,13 @@ return [
                 [
                     'text' => 'Cadastrar Comidas',
                     'url'  => 'admin/foods/index',
-                    'icon' => 'fas fa-fw fa-user',
+                    'icon' => 'fas fa-hamburger',
                     'can' => 'foods',
                 ],
             ],
         ],
-        [
-            'text'    => 'Pedidos',
-            'icon'    => 'fas fa-fw fa-share',
-            'url'  => 'admin/foodOrders/index',
-        ],
     ],
+
     /*
     |--------------------------------------------------------------------------
     | Menu Filters

@@ -202,13 +202,18 @@ Route::prefix('admin')
     Route::get('foods/{id}/categories', [CategoryFoodController::class, 'categories'] )->name('foods.categories');
     Route::get('categories/{id}/foods', [CategoryFoodController::class, 'foods'] )->name('categories.foods');
 
-
    /*
   *foodOrders
   */
-    Route::get('foodOrders/index', [FoodOrderController::class, 'index'])->name('foodOrders.index');
-    Route::get('foodOrders/{identify}', [FoodOrderController::class, 'details'])->name('foodOrders.details');
-    Route::any('foodOrders/search', [FoodOrderController::class, 'search'])->name('foodOrders.search');
+  Route::get('orders/index', [OrderController::class, 'index'])->name('orders.index');
+  Route::any('orders/search', [OrderController::class, 'search'])->name('orders.search');
+  Route::get('orders/{identify}', [OrderController::class, 'details'])->name('orders.details');   
+  Route::get('orders/foodDetails/{identify}', [OrderController::class, 'foodDetails'])->name('orders.foodDetails');
+  Route::get('orders/{url}/edit', [OrderController::class, 'edit'])->name('orders.edit');
+  Route::put('orders/{url}', [OrderController::class, 'update'])->name('orders.update');
+  Route::post('orders/store', [OrderController::class, 'store'])->name('orders.store');
+  Route::post('orders/create', [OrderController::class, 'create'])->name('orders.create');
+
 
 
   /*
