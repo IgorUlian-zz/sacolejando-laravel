@@ -1,6 +1,9 @@
 @extends('adminlte::page')
 
-@section('title', "Categorias do aliemento {$food->title}")
+@include('admin.includes.alerts')
+
+
+@section('title', "Categorias do alimento {$food->title}")
 
 @section('content_header')
     <ol class="breadcrumb">
@@ -9,7 +12,7 @@
         <li class="breadcrumb-item active"><a href="{{ route('foods.categories', $food->id) }}" class="active">Categorias</a></li>
     </ol>
 
-    <h1>Categorias do aliemento <strong>{{ $food->title }}</strong></h1>
+    <h1>Categorias do alimento <strong>{{ $food->title }}</strong></h1>
 
     <a href="{{ route('foods.categories.available', $food->id) }}" class="btn btn-dark">ADD NOVA CATEGORIA</a>
 

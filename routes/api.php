@@ -27,10 +27,13 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::post('/auth/token', [AuthClientController::class, 'authClient']);
+Route::post('/auth/register', [RegisterController::class, 'storeClient']);
+
+
 
 Route::group([
     'middleware' => ['auth:sanctum']], function () {
-        Route::get('/auth/me', [AuthClientController::class, 'recoverMe']);
+        Route::get('/auth/recoverMe', [AuthClientController::class, 'recoverMe']);
         Route::get('/auth/v1/my-orders', [OrderAPIController::class, 'myOrders']);
 
         Route::post('/auth/logout', [AuthClientController::class, 'logoutClient']);
@@ -44,7 +47,7 @@ Route::group([
 
 Route::group([
     'prefix' => 'v1',
-    'namespace' => 'API'
+    'namespace' => 'api'
 ],
     function () {
         

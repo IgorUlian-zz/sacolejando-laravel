@@ -32,6 +32,9 @@
                         <th>
                             Email
                         </th>
+                        <th>
+                            Contato
+                        </th>
                         <th width="200">
                             Ações
                         </th>
@@ -46,10 +49,13 @@
                             <td>
                                 {{$user->email}}
                             </td>
+                            <td>
+                                {{$user->contact}}
+                            </td>
                             <td style="width: 10px;">
                                 <a href="{{ route('users.edit', $user->id)}}" class="btn btn-warning">EDITAR</a>
                                 <a href="{{ route('users.roles', $user->id) }}" class="btn btn-info" title="Cargos"><i class="fas fa-layer-group"></i></a>
-                                <a href="{{ route('users.details', $user->id)}}" class="btn btn-info">VER</a>
+                                <a href="{{ route('users.details', $user->id)}}" class="btn btn-success">VER</a>
                             </td>
                         </tr>
 

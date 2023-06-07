@@ -19,8 +19,10 @@ class OrderRepository implements OrderRepositoryInterface
         string $identify,
         float $total,
         string $order_status,
+        string $payment = 'Sem ID',
         int $tenant_id,
-        string $order_comment = '',
+        string $comments = 'Sem comentário',
+        string $adress = 'Retirar no local',
         $client_id = ''
         )
 
@@ -29,8 +31,11 @@ class OrderRepository implements OrderRepositoryInterface
                     'tenant_id' => $tenant_id,
                     'identify' => $identify,
                     'total' => $total,
+                    'payment' => $payment,
                     'order_status' => $order_status,
-                    'order_comment' => $order_comment,
+                    'comments' => $comments,
+                    'adress' => $adress,
+
             ];
 
         if($client_id) $data['client_id'] = $client_id;

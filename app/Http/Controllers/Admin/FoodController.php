@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreUpdateFood;
 use App\Models\Food;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class FoodController extends Controller
 {
@@ -39,9 +40,15 @@ class FoodController extends Controller
 
     public function store(StoreUpdateFood $request)
     {
+        $data = $request->all();
 
-        $this->repository->create($request->all());
+        $tenant = auth()->user()->tenant;
 
+        if ($request->hasFile('image') && $request->image->isValid()) {
+            $data['image'] = $request->image->store("tenants/foods");
+        }
+
+        $this->repository->create($data);
 
         return redirect()->route('foods.index');
     }
@@ -71,6 +78,10 @@ class FoodController extends Controller
             return redirect()->back();
         }
 
+        if (Storage::exists($food->image)) {
+            Storage::delete($food->image);
+        }
+
         $food->delete();
 
         return redirect()->route('foods.index');
@@ -96,15 +107,27 @@ class FoodController extends Controller
 
     public function update(StoreUpdateFood $request, $id)
     {
-
         if(!$food = $this->repository->find($id)){
             return redirect()->back();
 
         }
 
-        $food->update($request->all());
+        $data = $request->all();
 
-            return redirect()->route('foods.index');
+        $tenant = auth()->user()->tenant;
+
+        if ($request->hasFile('image') && $request->image->isValid()) {
+
+            if (Storage::exists($food->image)) {
+                Storage::delete($food->image);
+            }
+
+            $data['image'] = $request->image->store("tenants/foods");
+        }
+
+        $food->update($data);
+
+        return redirect()->route('foods.index');
     }
 
     /**

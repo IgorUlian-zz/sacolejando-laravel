@@ -1,4 +1,5 @@
 @extends('adminlte::page')
+@include('admin.includes.alerts')
 
 @section('title', 'Editar o Plano')
 

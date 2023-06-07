@@ -23,11 +23,11 @@ class StoreUpdateOrderFood extends FormRequest
      */
     public function rules()
     {
-        $id = $this->segment(3);
-        
         return [
-            'order_status' => "required",
-            //'adress_client' => "required|min:3|max:255",
-        ];
+                'order_status' => ['required'],
+                'payment' => ['required'],
+                'adress' => ['required', 'min:5' ,'max:255'] ,
+    
+            ];
     }
 }

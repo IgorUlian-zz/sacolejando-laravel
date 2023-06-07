@@ -1,4 +1,4 @@
-)@extends('adminlte::auth.auth-page', ['auth_type' => 'register'])
+@extends('adminlte::auth.auth-page', ['auth_type' => 'register'])
 
 @php( $login_url = View::getSection('login_url') ?? config('adminlte.login_url', 'login') )
 @php( $register_url = View::getSection('register_url') ?? config('adminlte.register_url', 'register') )
@@ -30,7 +30,7 @@
 
             <div class="input-group-append">
                 <div class="input-group-text">
-                    <span class="fas fa-user {{ config('adminlte.classes_auth_icon', '') }}"></span>
+                    <span class="fas fa-address-card {{ config('adminlte.classes_auth_icon', '') }}"></span>
                 </div>
             </div>
 
@@ -48,7 +48,7 @@
         
                     <div class="input-group-append">
                         <div class="input-group-text">
-                            <span class="fas fa-user {{ config('adminlte.classes_auth_icon', '') }}"></span>
+                            <span class="fas fa-building {{ config('adminlte.classes_auth_icon', '') }}"></span>
                         </div>
                     </div>
         
@@ -94,6 +94,24 @@
                 </span>
             @enderror
         </div>
+
+                {{-- Contact field --}}
+                <div class="input-group mb-3">
+                    <input type="contact" name="contact" class="form-control @error('contact') is-invalid @enderror"
+                           value="{{ old('contact') }}" placeholder="{{ __('contact') }}">
+        
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                            <span class="fas fa-phone {{ config('adminlte.classes_auth_icon', '') }}"></span>
+                        </div>
+                    </div>
+        
+                    @error('contact')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                </div>
 
         {{-- Password field --}}
         <div class="input-group mb-3">

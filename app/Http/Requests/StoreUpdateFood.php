@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use App\Tenant\Rules\UniqueTenant;
 
 class StoreUpdateFood extends FormRequest
 {
@@ -25,10 +26,23 @@ class StoreUpdateFood extends FormRequest
     {
         $id = $this->segment(3);
         
-        return [
-            'food_name' => "required|min:3|max:255|unique:foods,food_name,{$id},id",
+        $rules = [
+            'food_name' => [
+                'required',
+                'min:3',
+                'max:255',
+                new UniqueTenant('foods', $id),
+            ],
             'food_desc' => "required|min:3|max:255",
-            'price' => "required"
+            'price' => "required",
+            'ingredients' => "required|min:3|max:255",
+            'image' => ['required', 'image'],
+
         ];
+
+        if ($this->method() == 'PUT') {
+            $rules['image'] = ['nullable', 'image'];
+        }
+        return $rules;
     }
 }

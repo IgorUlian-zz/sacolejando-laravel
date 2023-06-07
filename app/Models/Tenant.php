@@ -16,6 +16,7 @@ class Tenant extends Model
         'url',
         'tenant_name',
         'tenant_email',
+        'contact',
         'active',
         'subscription',
         'expires_at',
@@ -45,4 +46,5 @@ class Tenant extends Model
     /*public function plans() {
         return $this->belongsTo(Plan::class);
     }*/
+    
 }

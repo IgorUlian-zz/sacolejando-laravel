@@ -18,7 +18,9 @@ class Order extends Model
         'client_id',
         'order_status',
         'total',
-        'order_comment',
+        'adress',
+        'payment',
+        'comments',
     ];
 
     public $statusOptions = [

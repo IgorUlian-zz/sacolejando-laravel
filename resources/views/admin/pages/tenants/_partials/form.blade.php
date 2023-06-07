@@ -13,6 +13,11 @@
     <input type="number" name="cnpj" class="form-control" placeholder="CNPJ:" value="{{ $tenant->cnpj ?? old('cnpj') }}">
 </div>
 <div class="form-group">
+    <label>* CONTATO:</label>
+    <input type="number" name="cnpj" class="form-control" placeholder="CONTATO:" value="{{ $tenant->contact ?? old('contact') }}">
+</div>
+
+<div class="form-group">
     <label>* Ativo?</label>
     <select name="active" class="form-control">
         <option value="Y" @if(isset($tenant) && $tenant->active == 'Y') selected @endif >SIM</option>

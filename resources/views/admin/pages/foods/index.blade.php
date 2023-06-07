@@ -26,14 +26,13 @@
             <table class="table table-condensed">
                 <thead>
                     <tr>
+                        <th width="100">Imagem</th>
+
                         <th>
                             Nome
                         </th>
                         <th>
                             Preço
-                        </th>
-                        <th>
-                            Descrição
                         </th>
                         <th width="200">
                             Ações
@@ -44,13 +43,14 @@
                     @foreach ($foods as $food)
                         <tr>
                             <td>
+                                <img src="{{ url("storage/{$food->image}") }}" style="max-width: 90px;">
+
+                            </td>
+                            <td>
                                 {{$food->food_name}}
                             </td>
                             <td>
                                 {{$food->price}}
-                            </td>
-                            <td>
-                                {{$food->food_desc}}
                             </td>
                             <td style="width: 10px;">
                                 <a href="{{ route('foods.edit', $food->id)}}" class="btn btn-warning">EDITAR</a>

@@ -31,6 +31,7 @@ class StoreUpdateOrder extends FormRequest
             'foods' => ['required'],
             'foods.*.identify' => ['required', 'exists:foods,uuid'],
             'foods.*.quantity' => ['required', 'integer'] ,
+
         ];
 
     }

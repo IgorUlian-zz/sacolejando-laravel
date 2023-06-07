@@ -10,7 +10,7 @@
 
 </ol>
 
-<h1>Planos disponíveis no cargo: <strong>{{$role->role_name}}</strong></h1>
+<h1>Permissões disponíveis no cargo: <strong>{{$role->role_name}}</strong></h1>
 
 @stop
 

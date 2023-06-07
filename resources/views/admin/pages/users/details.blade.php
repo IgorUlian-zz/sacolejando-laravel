@@ -19,6 +19,9 @@
                 <li>
                     <strong>Empresa: </strong> {{$user->tenants->tenant_name}}
                 </li>
+                <li>
+                    <strong>Contato: </strong> {{$user->contact}}
+                </li>
             </ul>
             <form action="{{route('users.delete', $user->id)}}" method="POST">
                 @csrf

@@ -17,6 +17,7 @@ class User extends Authenticatable
     protected $fillable = [
         'tenant_id',
         'name',
+        'contact',
         'email',
         'email_verified_at',
         'password',
@@ -41,6 +42,7 @@ class User extends Authenticatable
     public function tenants() {
         return $this->belongsTo(Tenant::class, 'tenant_id', 'id');
     }
+
 
     protected $hidden = [
         'password', 'remember_token',

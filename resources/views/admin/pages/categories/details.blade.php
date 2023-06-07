@@ -1,4 +1,5 @@
 @extends('adminlte::page')
+@include('admin.includes.alerts')
 
 @section('title', "Detalhes da Categoria {$category->category_name}")
 

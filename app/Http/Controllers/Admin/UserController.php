@@ -49,7 +49,7 @@ class UserController extends Controller
         if(!$user = $this->repository->tenantUser()->find($id));
             return redirect()->back();
 
-        return view('admin.pages.users.details', ['user' => $user]);
+        return view('admin.pages.users.details', compact('user'));
     }
 
     public function delete($id)

@@ -1,5 +1,8 @@
 @extends('adminlte::page')
 
+@include('admin.includes.alerts')
+
+
 @section('title', 'Editar Alimento')
 
 @section('content_header')
@@ -9,7 +12,7 @@
 @section('content')
     <div class="card">
         <div class="card-body">
-            <form action="{{ route('foods.update', $food->id)}}" class="form" method="POST">
+            <form action="{{ route('foods.update', $food->id) }}" class="form" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
 

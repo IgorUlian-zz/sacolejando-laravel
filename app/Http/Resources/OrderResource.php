@@ -19,10 +19,13 @@ class OrderResource extends JsonResource
             'identify' => $this->identify,
             'total'=> $this->total,
             'status' => $this->order_status,
+            'adress' => $this->adress,
+            'payment' => $this->payment,
             'date' => Carbon::make($this->created_at)->format('Y-m-d'),
             'date_br' => Carbon::make($this->created_at)->format('d/m/Y'),
             'client' => $this->client_id ? new ClientResource($this->client) : '' ,
             'foods' =>  FoodResource::collection($this->foods),
+            'comments' => $this->comments,
         ];
     }
 

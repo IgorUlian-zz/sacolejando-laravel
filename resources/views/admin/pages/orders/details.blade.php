@@ -24,13 +24,22 @@
                     <strong>Cliente: </strong> {{$order->client->client_name}}
                 </li>
                 <li>
-                    <strong>Cliente: </strong> {{$order->client->client_email}}
+                    <strong>Email: </strong> {{$order->client->client_email}}
+                </li>
+                <li>
+                    <strong>Contato Cliente: </strong> {{$order->client->contact}}
+                </li>
+                <li>
+                    <strong>Endereço de entrega: </strong> {{$order->adress}}
                 </li>
                 <li>
                     <strong>Data: </strong> {{$order->created_at}}
                 </li>
                 <li>
-                    <strong>Observações: </strong> {{$order->order_comment}}
+                    <strong>Comentário: </strong> {{$order->comments}}
+                </li>
+                <li>
+                    <strong>Opção de pagamento: </strong> {{$order->payment}}
                 </li>
                 <li>
                     <strong>TOTAL A PAGAR: </strong> {{$order->total}}

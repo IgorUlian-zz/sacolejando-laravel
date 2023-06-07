@@ -44,6 +44,8 @@ class TenantService
             'tenant_cnpj' => $data['cnpj'],
             'tenant_name' => $data['company'],
             'tenant_email' => $data['email'],
+            'contact' => $data['contact'],
+
 
             'subscription' => now(),
             'expires_at' => now()->addDays(7),
@@ -55,7 +57,9 @@ class TenantService
         $user = $tenant->users()->create([
             'name' => $this->data['username'],
             'email' => $this->data['email'],
+            'contact' => $this->data['contact'],
             'password' => bcrypt($this->data['password']),
+            
         ]);
 
         return $user;

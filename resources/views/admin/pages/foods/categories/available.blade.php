@@ -1,5 +1,8 @@
 @extends('adminlte::page')
 
+@include('admin.includes.alerts')
+
+
 @section('food_name', 'Categorias disponíveis para o alimento {$food->food_name}')
 
 @section('content_header')

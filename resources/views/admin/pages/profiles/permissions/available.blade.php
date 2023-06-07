@@ -10,7 +10,7 @@
 
 </ol>
 
-<h1>Planos disponíveis no perfil <strong>{{$profile->profile_name}}</strong></h1>
+<h1>Permissões disponíveis no perfil: <strong>{{$profile->profile_name}}</strong></h1>
 
 @stop
 

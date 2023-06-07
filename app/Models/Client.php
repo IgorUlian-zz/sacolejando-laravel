@@ -19,6 +19,7 @@ class Client extends Authenticatable
         'client_email',
         'email_verified_at',
         'password',
+        'contact',
 
     ];
 

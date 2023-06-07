@@ -19,7 +19,7 @@ return new class extends Migration
             $table->id();
             $table->bigInteger('tenant_id')->unsigned();
             $table->uuid('uuid');
-            $table->string('category_name')->unique();
+            $table->string('category_name');
             $table->string('url');
             $table->string('category_desc');
             $table->timestamps();

@@ -29,16 +29,20 @@ class OrderService
         $identify = $this->getIdentifyOrder();
         $total = $this->getOrderPriceTotal($foodsOrder);
         $order_status = 'Aguardando';
+        $payment = isset($order['payment']) ? $order['payment'] : 'Sem ID';
         $tenant_id = $this->getTenantOrder($order['token_company']);
-        $order_comment = isset($order['order_comment']) ? $order['order_comment'] : '';
+        $comments = isset($order['comments']) ? $order['comments'] : 'Sem comentário';
+        $adress = isset($order['adress']) ? $order['adress'] : 'Retirar no Local';
         $client_id = $this->getClientIdByOrder();
 
         $order = $this->orderRepository->createNewOrder(
             $identify,
             $total,
             $order_status,
+            $payment,
             $tenant_id,
-            $order_comment,
+            $comments,
+            $adress,
             $client_id,
         );
         //REGISTRAR ITENS NO PEDIDO

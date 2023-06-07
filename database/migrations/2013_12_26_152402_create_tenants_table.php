@@ -20,7 +20,8 @@ return new class extends Migration
             $table->uuid( 'uuid');
             $table->string('tenant_cnpj')->unique(); //cnpj
             $table->string('url')->unique(); // url
-            $table->string('tenant_name')->unique(); // name
+            $table->string('tenant_name')->unique();
+            $table->string('contact');
             $table->string('tenant_email')->unique(); //email
             $table->bigInteger('plan_id')->unsigned();  // id do plano
             

@@ -8,9 +8,12 @@ interface OrderRepositoryInterface
         string $identify,
         float $total,
         string $order_status,
+        string $payment = 'Sem ID',
         int $tenant_id,
-        string $order_comment = '',
+        string $comments = 'Sem comentário',
+        string $adress = 'Retirar no Local',
         $client_id = ''
+
     );
 
     public function getOrderByIdentify(string $identify);

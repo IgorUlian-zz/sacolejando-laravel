@@ -23,7 +23,7 @@
                     <strong>Email: </strong> {{$tenant->tenant_email}}
                 </li>
                 <li>
-                    <strong>URL: </strong> {{$tenant->url}}
+                    <strong>Contato: </strong> {{$tenant->contact}}
                 </li>
                 <li>
                     <strong>Ativo: </strong> {{$tenant->active == 'Y' ? 'SIM' : 'NÃO'}}

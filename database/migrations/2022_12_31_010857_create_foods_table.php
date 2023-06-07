@@ -19,9 +19,11 @@ return new class extends Migration
             $table->id();
             $table->bigInteger('tenant_id')->unsigned();
             $table->string('food_name');
-            $table->string('url')->unique();
+            $table->string('url');
             $table->uuid('uuid');
+            $table->string('image');
             $table->double('price', 10,2);
+            $table->string('ingredients');
             $table->string('food_desc');
             $table->timestamps();
 

@@ -1,9 +1,12 @@
 @extends('adminlte::page')
 
+@include('admin.includes.alerts')
+
+
 @section('title', "Detalhes do Alimento {$food->food_name}")
 
 @section('content_header')
-    <h1>Detalhes</h1>
+    <h1>Detalhes dos Alimentos</h1>
 @stop
 
 @section('content')
@@ -18,6 +21,9 @@
                 </li>
                 <li>
                     <strong>Preço: </strong> {{$food->price}}
+                </li>
+                <li>
+                    <strong>Ingredients: </strong> {{$food->ingredients}}
                 </li>
                 <li>
                     <strong>Descrição: </strong> {{$food->food_desc}}

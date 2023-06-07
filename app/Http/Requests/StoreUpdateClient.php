@@ -27,6 +27,7 @@ class StoreUpdateClient extends FormRequest
             'client_name' => ['required', 'string', 'max:50'],
             'client_email' => ['required', 'string', 'email', 'max:25', "unique:clients"],
             'password' => ['required', 'string', 'min:6'],
+            'contact' => ['required', 'digits:11']
         ];
     }
 }
